@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/context  
+                        http://www.springframework.org/schema/context/spring-context.xsd  
+				        http://www.springframework.org/schema/beans  
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/mvc  
+                        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+	<!-- 配置mvc注解扫描范围 -->
+	<context:component-scan base-package="com.cdzy.controller"></context:component-scan>	
+	<!-- 使用mvc注解 -->
+	<mvc:annotation-driven />
+
+	<!-- 处理静态资源 -->	
+	<mvc:default-servlet-handler />
+<!-- 静态资源路径映射 -->
+	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>	
+	
+	<!-- 项目启动路径重定向 -->
+	<mvc:view-controller path="/" view-name="redirect:login.html"/>
+
+
+</beans>
